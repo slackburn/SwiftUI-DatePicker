@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var date = Date()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            DatePicker(selection: $date, in: Date()..., displayedComponents: .date) { //...Date() will gray out future dates. Date()... will gray out past dates
+                Text("Choose a date")
+            }
+            .frame(width: 200, height: 50, alignment: .center)
+        }
     }
 }
 
